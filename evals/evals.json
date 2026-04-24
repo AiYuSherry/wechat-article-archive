@@ -1,0 +1,71 @@
+{
+  "skill_name": "wechat-article-archive",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "帮我归档这篇文章：https://mp.weixin.qq.com/s/Example123",
+      "expected_output": "抓取文章内容，生成结构化摘要，保存到 ~/Documents/Obsidian Vault/文章记录/",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "看到一篇不错的公众号文章，想保存到 Obsidian 里，链接是 https://mp.weixin.qq.com/s?__biz=MzA5NjEyMDUyMA==\u0026mid=2651234567",
+      "expected_output": "识别链接，抓取内容，生成摘要，保存到 Obsidian Vault 的文章记录文件夹",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "收藏这篇微信文章 https://mp.weixin.qq.com/s/AbC123",
+      "expected_output": "触发归档流程，保存文章摘要到 Obsidian",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "帮我存一下这篇知乎专栏：https://zhuanlan.zhihu.com/p/123456789",
+      "expected_output": "识别知乎专栏链接，复用已有 CDP/Chrome 登录态抓取正文，生成结构化摘要并保存到 ~/Documents/Obsidian Vault/文章记录/",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "归档这个知乎回答 https://www.zhihu.com/question/123456/answer/987654",
+      "expected_output": "识别知乎回答链接，抓取标题、作者、正文和可见赞同信息，保存为 Obsidian Markdown",
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "知乎链接归档的时候别每次让我重新构建 CDP，能复用就复用",
+      "expected_output": "说明并执行 CDP 连接复用策略：先检查 localhost:3456/proxy 和已有 Chrome remote debugging；如果 remote debugging 未开启，提示用户开启并停止流程",
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "帮我归档这篇长文：https://example.com/some-long-essay",
+      "expected_output": "按通用网页文章处理，优先轻量抓取正文，生成摘要和标签后保存到 Obsidian 文章记录",
+      "files": []
+    },
+    {
+      "id": 8,
+      "prompt": "我贴一段文字，帮我存到文章记录：这是一段超过 500 字的文章草稿……",
+      "expected_output": "识别为用户粘贴长文本，生成标题、摘要、标签，source 标记为用户提供文本，url 标记为 manual-input 并保存",
+      "files": []
+    },
+    {
+      "id": 9,
+      "prompt": "Chrome 提示 DevTools remote debugging requires a non-default data directory，我怎么继续归档知乎文章？",
+      "expected_output": "提示使用 --remote-debugging-port=9222 --user-data-dir=\"$HOME/.codex/chrome-cdp-profile\" 启动独立 CDP Chrome，说明首次使用需要在该资料目录中重新登录，后续可保留登录态，并在未开启前停止归档流程",
+      "files": []
+    },
+    {
+      "id": 10,
+      "prompt": "127.0.0.1:9222/json/version 能打开，但 localhost:3456/targets 失败，别让我重开 Chrome，帮我判断怎么处理",
+      "expected_output": "识别为 proxy 层故障而非 Chrome remote debugging 故障，重启或重连 web-access proxy，并以 /json/version 的当前 webSocketDebuggerUrl 为准",
+      "files": []
+    },
+    {
+      "id": 11,
+      "prompt": "归档这篇 2023 年写的文章，但文件名时间用今天保存的时间，另外帮我提取关键词",
+      "expected_output": "文件名和 frontmatter date 使用保存当天日期；文章原始发布时间写入 published；输出 5-10 个适合 Obsidian 检索和双链的关键词",
+      "files": []
+    }
+  ]
+}

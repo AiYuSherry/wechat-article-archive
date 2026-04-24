@@ -1,0 +1,23 @@
+{
+  "name": "wechat-article-archive",
+  "slug": "wechat-article-archive",
+  "created_at": "2026-04-23T00:00:00Z",
+  "updated_at": "2026-04-25T01:30:00Z",
+  "version": "v5",
+  "profile": {
+    "type": "工具型助手",
+    "purpose": "长文章链接与用户粘贴长文本的抓取、总结与归档",
+    "target_user": "使用 Obsidian 管理知识的用户"
+  },
+  "tags": {
+    "category": ["知识管理", "内容归档", "微信", "知乎", "网页文章", "长文本"],
+    "tools": ["CDP", "WebFetch", "文件写入"],
+    "output": ["Markdown", "Obsidian"]
+  },
+  "dependencies": {
+    "vault_path": "~/Documents/Obsidian Vault",
+    "target_folder": "文章记录"
+  },
+  "corrections_count": 4,
+  "message_count": 0
+}
